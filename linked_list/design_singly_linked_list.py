@@ -46,6 +46,16 @@ class LinkedList:
             return True
         return False
     
+    def reverse(self) -> None:
+        prev = None
+        curr = self.head.next
+        while curr:
+            fut_next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = fut_next
+        self.head.next = prev
+    
     def getValues(self) -> list[int]:
         curr = self.head.next
         res = []
@@ -61,4 +71,5 @@ myLinkedList.insertTail(2)
 myLinkedList.insertTail(3)
 myLinkedList.insertTail(4)
 myLinkedList.remove(2)
+myLinkedList.reverse()
 print(myLinkedList.getValues())
